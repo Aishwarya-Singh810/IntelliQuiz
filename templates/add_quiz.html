@@ -1,0 +1,20 @@
+
+{% include 'admin_dashboard.html' %}
+{% block content %}
+<div class="container mt-4" style="background-color:#76ABAE; border-radius:15px 15px;padding-bottom:50px;">
+    <h1>Add Quiz</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="title">Quiz Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="quiz title" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" id="category" name="category" placeholder="E.g. HTML or DSA stc" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Quiz</button>
+    </form>
+</div>
+{% endblock %}
+
+{% include 'footer.html' %}

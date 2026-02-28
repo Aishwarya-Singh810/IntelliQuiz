@@ -1,0 +1,23 @@
+<!-- Footer Section -->
+<footer class="footer" style="background-color:white; position: fixed; bottom: 0; width: 100%; z-index: 100;">
+    <div class="footer-content text-center">
+        <p>&copy; 2024 IntelliQuiz. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<script>
+    // Automatically fade out the flash message after 3 seconds
+    window.onload = function () {
+        const flashMessage = document.getElementById('flash-message');
+        if (flashMessage) {
+            setTimeout(() => {
+                flashMessage.style.transition = "opacity 1s";
+                flashMessage.style.opacity = 0;
+                setTimeout(() => flashMessage.remove(), 1000);  // Remove the message after it fades out
+            }, 3000);  // 3 seconds before fade-out starts
+        }
+    };
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+quiz_venv/
+venv/
+.env
+
+# Flask
+flask_session/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store

@@ -1,0 +1,57 @@
+{% include 'base.html' %}
+{% block content %}
+<div class="container py-5" style="background-color:#76ABAE; border-radius:15px 15px; padding-bottom:50px;">
+    <h1 class="text-center mb-4" data-aos="fade-up" data-aos-duration="1000">Your Quiz History</h1>
+
+    {% if alert_message %}
+        <script type="text/javascript">
+            alert("{{ alert_message }}");
+        </script>
+    {% endif %}
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover shadow-lg" data-aos="fade-up" data-aos-duration="1000">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Quiz Set ID</th>
+                    <th>Score</th>
+                    <th>Date/Time</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for quiz_set_id, quiz_data in quiz_history.items() %}
+        <tr>
+            <td>{{ loop.index }}</td> <!-- Use loop.index to display the row number -->
+            <td>{{ quiz_set_id }}</td>
+            <td>{{ quiz_data.total_score }}/5</td>
+            <td>{{ quiz_data.date_attempted.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td>
+                <a href="{{ url_for('results', quiz_set_id=quiz_set_id) }}" class="btn btn-extra btn-sm">
+                    View Result
+                </a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="5" class="text-center text-muted">No quizzes found.</td>
+        </tr>
+    {% endfor %}
+</tbody>
+
+        </table>
+    </div>
+</div>
+
+<!-- Include AOS (Animate On Scroll) library -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    // Initialize AOS animation library
+    AOS.init();
+</script>
+{% endblock %}
+
+
+
+{% include 'footer.html' %}

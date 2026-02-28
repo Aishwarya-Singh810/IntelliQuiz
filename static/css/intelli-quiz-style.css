@@ -1,0 +1,442 @@
+    /* Style for the logo */
+    .dynamic-logo {
+        height: auto; /* Adjust height dynamically */
+        width: 150px; /* Adjust the width dynamically */
+        border: 2px solid #ffffff; /* White border */
+        border-radius: 20px; /* Rounded corners */
+        transition: all 0.3s ease-in-out; /* Smooth transition effect */
+    }
+
+    /* Hover effect for the logo */
+    .dynamic-logo:hover {
+        border-color: #2cf235; /* Change border color on hover */
+        transform: scale(1.1); /* Slightly increase size on hover */
+        box-shadow: 0 0 10px rgba(255, 193, 7, 0.7); /* Add glowing effect */
+    }
+
+    /* Remove padding for the navbar brand container */
+    #logo-container {
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+
+        /* Style for the logo */
+    .animated-logo {
+        height: auto;
+        width: 150px;
+        border: 2px solid #ffffff;
+        border-radius: 20px;
+        transition: all 0.4s ease-in-out;
+        animation: glow-animation 5s infinite;
+    }
+
+    /* Hover effect for the logo */
+    .animated-logo:hover {
+        transform: scale(1.1);
+        border-color: #2cf235;
+    }
+
+    /* Glowing animation */
+    @keyframes glow-animation {
+        0% {
+            box-shadow: 0 0 5px #ffffff;
+        }
+        50% {
+            box-shadow: 0 0 20px #ffc107, 0 0 40px #b2f8b5, 0 0 60px #2cf235;
+        }
+        100% {
+            box-shadow: 0 0 5px #ffffff;
+        }
+    }
+
+    /* Remove padding for the navbar brand container */
+    #logo-container {
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+
+
+    /* Navbar general styling */
+    .navbar {
+        padding: 0.7rem 1rem;
+<!--        border-bottom: 3px solid #d11c48;-->
+    }
+
+    /* Navbar brand (excluding the logo container) */
+    .navbar-brand {
+        font-size: 1.5rem;
+<!--        font-weight: bold;-->
+        color: #ffffff;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .navbar-brand:hover {
+        color: #2cf235;
+        text-shadow: 0 0 8px #2cf235;
+    }
+
+    /* Nav items styling */
+    .nav-item {
+        margin: 0 0.5rem;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        color: #ffffff;
+        padding: 0.5rem 1rem;
+        border: 2px solid;
+        border-color: #d11c48;
+        border-radius: 15px;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .nav-link:hover {
+        color: #2cf235;
+        background-color: black;
+        border-color: #2cf235;
+        box-shadow: 0 0 10px #2cf235;
+    }
+
+    /* Button styles for login and register */
+    .btn-primary {
+        background-color: black;
+        border: 2px solid;
+        border-color: #d11c48;
+        color: #2cf235;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease-in-out;
+    }
+
+    .btn-primary:hover {
+        background-color: #fafaf9;
+        border-color: #2cf235;
+        color: black;
+        font-weight: bold;
+        box-shadow: 0 0 10px #e6fa94, 0 0 20px #2cf235;
+        animation: glow-animation 5s infinite;
+    }
+
+    /* Navbar toggler icon */
+    .navbar-toggler {
+        border: 2px solid #d11c48;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-toggler:hover {
+        border-color: #2cf235;
+        box-shadow: 0 0 10px #2cf235;
+    }
+
+<!--    .navbar-toggler-icon {-->
+<!--        background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 0.7%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');-->
+<!--    }-->
+
+    /* Dropdown styling */
+    .dropdown-menu {
+        background-color: #111;
+        border: 2px solid #d11c48;
+        border-radius: 8px;
+        padding: 1rem 1rem;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .dropdown-item {
+        color: #fff;
+        padding: 1rem 1rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .dropdown-item:hover {
+        background-color: #2cf235;
+        color: #111;
+    }
+
+    /* Active link styles */
+    .nav-link.active {
+        color: #d11c48;
+        font-weight: bold;
+        border-color: #d11c48;
+    }
+
+    /* Center logo styling */
+    .center-logo {
+        height: 5rem;
+        width: 5rem;
+        position: absolute;
+        left: 50%;
+        top: 1px;
+        transform: translateX(-50%);
+        animation: fly-animation 5s ease-in-out infinite, hover-effect 10s ease-in-out infinite;
+        transition: all 0.4s ease-in-out;
+    }
+
+    /* Animation for flapping or floating */
+    @keyframes fly-animation {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-20px);
+        }
+    }
+
+    /* Glow effect on hover */
+    .center-logo:hover {
+        animation: none; /* Stop floating when hovered */
+        transform: translateX(-50%) scale(1.2); /* Slight zoom */
+    }
+
+    /* Optional hover fluttering effect */
+    @keyframes hover-effect {
+        0%, 100% {
+            transform: translateX(-50%) rotate(0deg);
+        }
+        25% {
+            transform: translateX(-50%) rotate(-15deg);
+        }
+        50% {
+            transform: translateX(-50%) rotate(0deg);
+        }
+        75% {
+            transform: translateX(-50%) rotate(15deg);
+        }
+    }
+
+
+    /* Hero Section Styling */
+.hero-section {
+    background: linear-gradient(135deg, #2c3e50, #d11c48, #2cf235);
+    background-size: 400% 400%;
+    color: #fff;
+    padding: 3rem 3rem;
+    animation: gradient-animation 10s ease infinite;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-bottom: 5px solid #C73659;
+
+    display: flex; /* Enables flexbox layout */
+    align-items: center; /* Vertically aligns content within the container */
+    justify-content: space-between; /* Ensures space between the two divs */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center; /* Center-align the content */
+        padding: 2rem 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .hero-background {
+        min-height: 50vh; /* Reduce the height on smaller screens */
+        background-size: cover; /* Ensure the background image scales */
+        background-position: center; /* Center the image */
+    }
+    .login-bg {
+        min-height: 50vh; /* Reduce the height on smaller screens */
+        background-size: cover; /* Ensure the background image scales */
+        background-position: center; /* Center the image */
+    }
+
+    .container {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .signin {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .hero-title {
+        font-size: 2rem; /* Reduce font size for smaller screens */
+    }
+
+    .hero-description {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+
+    .btn-hero {
+        font-size: 0.9rem; /* Adjust button size */
+        padding: 0.8rem 1.2rem; /* Adjust button padding */
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem; /* Further reduce font size */
+    }
+
+    .hero-description {
+        font-size: 0.9rem; /* Further reduce font size */
+    }
+
+    .hero-background {
+        min-height: 30vh; /* Further reduce background height */
+    }
+
+    .login-bg {
+        min-height: 30vh; /* Further reduce background height */
+    }
+
+    .btn-hero {
+        font-size: 0.8rem; /* Adjust button font size */
+        padding: 0.6rem 1rem; /* Adjust button padding */
+    }
+}
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Hero Title */
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1rem;
+}
+.container {
+    flex: 1; /* Takes up equal space as .hero-background */
+    text-align: center; /* Centers the text within this div */
+    padding: 20px; /* Adds padding inside the text container */
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.signin {
+    flex: 1; /* Takes up equal space as .hero-background */
+    text-align: center; /* Centers the text within this div */
+    padding: 20px; /* Adds padding inside the text container */
+    background-image: url("{{ url_for('static', filename='images/night3.jpg') }}");
+    background-size: cover; /* Ensures the image covers the container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-top-right-radius: 15px; /* Rounds the top right corner */
+    border-bottom-right-radius: 15px; /* Rounds the bottom right corner */
+}
+
+.hero-background {
+    flex: 1;
+    background-image: url("{{ url_for('static', filename='images/boy-with-glasses.jpg') }}");
+    background-size: cover; /* Ensures the image covers the container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    min-height: 90vh; /* Makes the container at least as tall as the viewport */
+    width: 100%; /* Ensures it spans the full width */
+    display: flex; /* Optional: To align content inside */
+    align-items: center; /* Optional: Align content vertically */
+    justify-content: center; /* Optional: Align content horizontally */
+}
+
+.login-bg {
+    flex: 1;
+    background-image: url("{{ url_for('static', filename='images/kids-studying-from-home.gif') }}");
+    background-size: cover; /* Ensures the image covers the container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    min-height: 90vh; /* Makes the container at least as tall as the viewport */
+    width: 100%; /* Ensures it spans the full width */
+    display: flex; /* Optional: To align content inside */
+    align-items: center; /* Optional: Align content vertically */
+    justify-content: center; /* Optional: Align content horizontally */
+    border-radius: 15px;
+}
+
+/* Hero Description */
+.hero-description {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Hero Button */
+.btn-hero {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #d11c48;
+    background-color: transparent;
+    color: #2cf235;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.btn-hero:hover {
+    background-color: #fff;
+    color: #111;
+    box-shadow: 0 0 20px #2cf235, 0 0 30px #d11c48;
+    transform: scale(1.1);
+}
+/* Footer Styling */
+.footer {
+    background-color: #EEEEEE; /* Light gray background */
+    color: #333; /* Dark text color for contrast */
+    text-align: center; /* Center-align the text */
+<!--    padding: 1rem; /* Add padding for spacing */-->
+<!--    font-size: 0.9rem; /* Adjust font size */-->
+<!--    border-top: 1px solid #CCC; /* Optional: Add a subtle top border */-->
+}
+/* Global font settings */
+body {
+    font-family: "Constantia", "Georgia", serif; /* Set Constantia as the primary font, with a fallback to Georgia */
+    color: #EEEEEE; /* Set the text color globally */
+}
+.footer-content {
+    margin: 0 auto; /* Center the footer content horizontally */
+    font-style: italic;
+}
+
+
+
+
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.option-btn {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.correct {
+    background-color: #28a745;
+}
+
+.wrong {
+    background-color: #dc3545;
+}
+

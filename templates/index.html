@@ -1,0 +1,22 @@
+{% include 'base.html' %}
+{% if alert_message %}
+        <script type="text/javascript">
+            alert("{{ alert_message }}");
+        </script>
+{% endif %}
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-background">
+  </div>
+  <div class="container text-center" >
+        <h1 class="hero-title" >Intelli Quiz</h1>
+        <h3 ><i>"A quiz a day keeps ignorance away!"</i></h3><br>
+        <p class="hero-description">
+            Unlock a world of knowledge and challenge your intellect with our engaging quizzes.
+        </p>
+
+        <a href="/categories" class="btn btn-hero">Explore Quizzes</a>
+    </div>
+</div>
+
+{% include 'footer.html' %}

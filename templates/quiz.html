@@ -1,0 +1,114 @@
+{% include 'base.html' %}
+{% block content %}
+<style>
+    .timer-compact {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-size: 16px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .timer-compact span:first-child {
+        margin-right: 5px;
+    }
+</style>
+
+<div class="container py-5" style="background-color:#76ABAE; border-radius:15px 15px;">
+    <h1 class="text-center mb-4">{{ quiz.title }}</h1>
+    <div id="timer" class="timer-compact">
+        <span>⏱️</span> <span id="time-left">60 </span> <span>sec</span>
+    </div>
+    <form id="quiz-form">
+        {% for question in questions %}
+            <div class="card mb-4" data-aos="fade-up" data-aos-duration="800">
+                <div class="card-body">
+                    <h5 class="card-title">{{ question['question'] }}</h5>
+                    {% for option in question['question_options'].split(',') %}
+                        <div class="form-check">
+                            <input class="form-check-input btn-extra" type="radio" name="{{ question['id'] }}" value="{{ option | trim }}">
+                            <label class="form-check-label">{{ option | trim }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-success btn-lg w-100">Submit</button>
+    </form>
+    <div id="alert-box" class="alert alert-success d-none mt-3" role="alert">
+        Your quiz has been submitted! Your score: <span id="score"></span>
+    </div>
+    <div id="loading-spinner" class="spinner-border text-primary d-none mt-3" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<script>
+    let timeLeft = 60;
+let quizSubmitted = false; // Flag to prevent multiple submissions
+const timer = setInterval(() => {
+    document.getElementById('time-left').innerText = --timeLeft;
+    if (timeLeft <= 0) {
+        clearInterval(timer);
+        alert('Time is up!');
+        submitQuiz();
+    }
+}, 1000);
+
+document.getElementById('quiz-form').onsubmit = function (e) {
+    e.preventDefault();  // Prevent the default form submission
+    submitQuiz();
+};
+
+// Function to submit the quiz
+function submitQuiz() {
+    if (quizSubmitted) return; // Prevent multiple submissions
+    quizSubmitted = true; // Set the flag
+
+    const spinner = document.getElementById('loading-spinner');
+    spinner.classList.remove('d-none');  // Show the loading spinner
+
+    const formData = new FormData(document.getElementById('quiz-form'));
+    const formattedData = {};
+    formData.forEach((value, key) => {
+        formattedData[key] = value.trim();  // Format the data (trim whitespace)
+    });
+
+    // Send the quiz data to the backend using fetch
+    fetch('/submit?quiz_id={{ quiz.id }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'  // Set the content type to JSON
+        },
+        body: JSON.stringify(formattedData),  // Send the formatted data
+    })
+        .then(response => response.json())  // Parse the JSON response
+        .then(data => {
+            spinner.classList.add('d-none');  // Hide the spinner after receiving response
+            alert(`Your quiz has been submitted! Score: ${data.score}/${Object.keys(formattedData).length}`);
+            window.location.href = `/results/${data.quiz_set_id}`;  // Redirect to the results page
+        })
+        .catch(error => {
+            spinner.classList.add('d-none');  // Hide the spinner if an error occurs
+            console.error('Error:', error);  // Log the error
+            alert('An error occurred while submitting the quiz.');
+        });
+}
+
+// Prevent navigation and warn about unsaved changes only if quiz is not submitted
+window.addEventListener('beforeunload', function (e) {
+    if (!quizSubmitted) {
+        // Show browser's confirmation popup
+        e.preventDefault();
+        e.returnValue = ''; // Required for modern browsers
+    }
+});
+
+</script>
+{% endblock %}
+{% include 'footer.html' %}

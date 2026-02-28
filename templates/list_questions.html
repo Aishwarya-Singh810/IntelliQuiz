@@ -1,0 +1,42 @@
+
+{% include 'admin_dashboard.html' %}
+{% block content %}
+<div class="container mt-4" style="background-color:#76ABAE; border-radius:15px 15px;padding-bottom:50px;">
+    <h1>Manage Questions for "{{ quiz.title }}"</h1>
+    <a href="{{ url_for('add_question', quiz_id=quiz.id) }}" class="btn btn-success mb-3">Add Question</a>
+ <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Question</th>
+            <th>Options</th>
+            <th>Correct Option</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for question in questions %}
+        <tr>
+            <td>{{ question.id }}</td>
+            <td>{{ question.question }}</td>
+            <td>{{ question.question_options }}</td>
+            <td>{{ question.correct_option }}</td>
+            <td>
+                <a href="{{ url_for('edit_question', quiz_id=quiz.id, question_id=question.id) }}" class="btn btn-warning btn-sm">Edit</a>
+            </td>
+            <td>
+                <form action="{{ url_for('delete_question', quiz_id=quiz.id, question_id=question.id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure?');">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+{% endblock %}
+
+
+{% include 'footer.html' %}

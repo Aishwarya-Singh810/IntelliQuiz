@@ -1,0 +1,41 @@
+{% include 'base.html' %}
+    <!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-background login-bg">
+
+  </div>
+  <div class="signin text-center">
+    {% block content %}
+        <h1 class="signin-header">Sign Up</h1>
+        <form method="POST" action="/register">
+            <div class="mb-3">
+                <label for="username">User Name</label>
+                <input type="username" class="form-control transparent-input" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input type="email" class="form-control transparent-input" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password">Password</label>
+                <input type="password" class="form-control transparent-input" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    {% endblock %}
+</div>
+
+</div>
+
+<script>
+    // Check for the 'error' parameter in the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+
+    if (error === 'existing_user') {
+        // Display an alert box for invalid credentials
+        alert('User already exists. Please try again with another id.');
+    }
+</script>
+
+{% include 'footer.html' %}

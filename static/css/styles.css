@@ -1,0 +1,33 @@
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h5, h2 {
+    color: black;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.hero-section {
+    background: url('/static/images/hero-bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}

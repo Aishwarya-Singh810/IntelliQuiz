@@ -1,0 +1,29 @@
+
+{% include 'admin_dashboard.html' %}
+{% block content %}
+<div class="container mt-4" style="background-color:#76ABAE; border-radius:15px 15px; padding-bottom:50px;">
+    <h1>Edit Question for Quiz: {{ quiz.title }}</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="question">Question</label>
+            <input type="text" class="form-control" id="question" name="question" value="{{ question.question }}" required>
+        </div>
+        <div class="form-group">
+            <label for="options">Options (Separate by comma `,`)</label>
+            <input type="text" class="form-control" id="options" name="options" value="{{ question.question_options }}" required>
+        </div>
+        <div class="form-group">
+            <label for="correct_option">Correct Option</label>
+            <input type="text" class="form-control" id="correct_option" name="correct_option" value="{{ question.correct_option }}" required>
+        </div>
+        <div class="form-group">
+            <label for="explanation">Explanation</label>
+            <textarea class="form-control" id="explanation" name="explanation" required>{{ question.explanation }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Question</button>
+        <a href="{{ url_for('list_questions', quiz_id=quiz.id) }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
+
+{% include 'footer.html' %}
